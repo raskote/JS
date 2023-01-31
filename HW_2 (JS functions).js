@@ -124,11 +124,36 @@ function list_tests(test){
         '21. Проверьте семейство шрифтов, предоставленное реализацией дизайнера, или нет',
         '22. Убедитесь, что кнопка сброса должна устанавливать значения по умолчанию для всех полей'
     ];
-    
-    return console.log(phone_num)
+    if (test == 'Phone number field'){
+        for(i = 0; i < phone_num.length; ++i) {
+            console.log(phone_num[i]);
+        }    
+    }else if(test == 'CheckBox'){
+        for(i = 0; i < CheckBox.length; ++i) {
+            console.log(CheckBox[i]);
+        }    
+    }else if(test == 'SignIn Button'){
+        for(i = 0; i < SignIn_Button.length; ++i) {
+            console.log(SignIn_Button[i]);
+        }    
+    }
 }
-list_tests(phone_num)
-//for (let i = 0; i < weeks.length; i++) {
-//    console.log(weeks[i])
-//  }
+list_tests('Phone number field')
+list_tests('CheckBox')
+list_tests('SignIn Button')
+
 // 7) Написать функцию которая на вход получает JSON а возвращяет XML
+// Разобраться
+// function json_to_xml(json_obj) {
+//     var xml = "<root>";
+//     for (var key in json_obj) {
+//         if (json_obj.hasOwnProperty(key)) {
+//             xml += "<" + key + ">" + json_obj[key] + "</" + key + ">";
+//         }
+//     }
+//     xml += "</root>";
+//     return xml;
+//   }
+  
+//   var json_obj = {name: "John", age: 30, city: "New York"};
+//   console.log(json_to_xml(json_obj));
