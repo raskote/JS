@@ -1,14 +1,15 @@
 // HW_2 JS_functions
 // 1) Сделать функцию которая при вызове напишет в консоль сумму 2-х переданных в неё чисел
 function summa(s1, s2){
-     console.log(s1 + s2)
+     console.log(s1 + s2);
 }
 
 summa(1, 2)
 
 // 2) Сделать функцию которая вернёт в консоль квадрат переданного числа
+
 function square(sq){
-    console.log(sq ** 2)
+    return(console.log(sq ** 2));
 }
 
 square(9)
@@ -18,13 +19,13 @@ square(9)
 //  "surname":Ф,
 //  "middlename":О}
 function json(f,i,o){
-    console.log(JSON.stringify({name:i, surname:f, middlename:o}))
+    return(console.log(JSON.stringify({name:i, surname:f, middlename:o})));
 }
 
 json('И', 'Ф', 'О')
 
-// 4) вывести в консоль переменную-массив в которой будут все чётные числа. Переменную возвращяет функция которая на вход принимает массив чисел.
-// Если чётных чисел не нашлось, то функция вернёт текст "No even numbers"
+// // 4) вывести в консоль переменную-массив в которой будут все чётные числа. Переменную возвращяет функция которая на вход принимает массив чисел.
+// // Если чётных чисел не нашлось, то функция вернёт текст "No even numbers"
 function array(params){
     let counter = 0;
     for(i = 0; i<params.length; i++){
@@ -34,17 +35,17 @@ function array(params){
         }
     }
     if(counter == 0){
-        console.log("No even numbers")
+        return(console.log("No even numbers"))
     }
 }
-
 var x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]
-var y = [1, 3, 5]
 array(x);
+
+var y = [1, 3, 5]
 array(y);
 
-// 5) Сделать функцию которая вернёт количество букв 'a' в переданном в неё слове.
-// Алфавит Eng. Если нету букв 'а', то вернтуть текст "No a characters".
+// // 5) Сделать функцию которая вернёт количество букв 'a' в переданном в неё слове.
+// // Алфавит Eng. Если нету букв 'а', то вернтуть текст "No a characters".
 function letter_a(word){
     let count = 0;
     for(i = 0; i<word.length; i++){
@@ -53,9 +54,9 @@ function letter_a(word){
         }
     }
     if(count == 0){
-        console.log("No a characters")
+        return(console.log("No a characters"));
     }else{
-        console.log(count)
+        return(console.log(count));
     }
 }
 
@@ -124,15 +125,16 @@ function list_tests(test){
         '21. Проверьте семейство шрифтов, предоставленное реализацией дизайнера, или нет',
         '22. Убедитесь, что кнопка сброса должна устанавливать значения по умолчанию для всех полей'
     ];
-    if (test == 'Phone number field'){
+    let val_test = test.toLowerCase().trim();
+    if (val_test == 'phone number field'){
         for(i = 0; i < phone_num.length; ++i) {
             console.log(phone_num[i]);
         }    
-    }else if(test == 'CheckBox'){
+    }else if(val_test == 'checkbox'){
         for(i = 0; i < CheckBox.length; ++i) {
             console.log(CheckBox[i]);
         }    
-    }else if(test == 'SignIn Button'){
+    }else if(val_test == 'signin button'){
         for(i = 0; i < SignIn_Button.length; ++i) {
             console.log(SignIn_Button[i]);
         }    
@@ -143,7 +145,33 @@ list_tests('CheckBox')
 list_tests('SignIn Button')
 
 // 7) Написать функцию которая на вход получает JSON а возвращяет XML
-// Разобраться
+function JSONtoXML(obj) {
+    let xml = '';
+    for (let prop in obj) {
+      xml += obj[prop] instanceof Array ? '' : '\n<' + prop + '>';
+      if (obj[prop] instanceof Array) {
+        for (let array in obj[prop]) {
+          xml += '<' + prop + '>';
+          xml += JSONtoXML(new Object(obj[prop][array]));
+          xml += '</' + prop + '>\n';
+        }
+      } else if (typeof obj[prop] == 'object') {
+        xml += JSONtoXML(new Object(obj[prop]));
+      } else {
+        xml += obj[prop];
+      }
+      xml += obj[prop] instanceof Array ? '' : '</' + prop + '>\n';
+    }
+    xml = xml.replace('/<\/?[0-9]{1,}>/g', '');
+    return xml;
+  }
+function jsonInXML (json){
+let xml = JSONtoXML(json);
+console.log(xml);
+}
+
+jsonInXML (js)
+
 // function json_to_xml(json_obj) {
 //     var xml = "<root>";
 //     for (var key in json_obj) {

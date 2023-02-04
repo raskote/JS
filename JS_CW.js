@@ -61,10 +61,24 @@
 
 // fs33(n1,n2)
 
-function n2(title, fn1){
-    console.log(title, "N2")
-    fn1("Code 200 OK !!!!")
-}
-n2("Test code 200", function(pp1){
-    console.log(pp1)
-})
+// function n2(title, fn1){
+//     console.log(title, "N2")
+//     fn1("Code 200 OK !!!!")
+// }
+// n2("Test code 200", function(pp1){
+//     console.log(pp1)
+// })
+
+let student = {
+    name: 'John',
+    age: 30,
+    isAdmin: false,
+    courses: ['html', 'css', 'js'],
+    wife: null
+  };
+  
+  let json = JSON.stringify(student);
+  
+  console.log(student);
+  
+
