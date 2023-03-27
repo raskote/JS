@@ -1,4 +1,4 @@
-// HW_2 JS_functions
+// JS. HW_2 JS_functions
 // 1) Сделать функцию которая при вызове напишет в консоль сумму 2-х переданных в неё чисел
 function summa(s1, s2){
      console.log(s1 + s2);
